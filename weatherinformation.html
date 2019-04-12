@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script>
+
+</script>
+</head>
+<body>
+
+<form action="/action_page.php">
+	<h2>Report</h2>
+    <div class="form-group  col-md-6">
+      
+      <select class=' form-control' onchange="getReport(this)" > 
+		<option value=''>Select</option>
+		<option value='1566083'> Ho Chi Minh</option>
+		<option value='1880252'>   singpur</option>
+		<option value='1735161'> Kuala Lumpur </option>
+		<option value='4180386'> Athens </option>
+	</select>
+    </div>
+   
+  </form>
+
+</body>
+</html>
+
+<script>
+
+	function getReport(element){
+			
+		$id = $(element).val();
+		
+		$.ajax({
+		
+			type:"post",
+			url:"https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=8a2796e00963a354c8ef3ff6c4e2f9da",
+			async:false,
+			success:function(response){
+				console.log(response);
+			},
+			error:function(status){
+				console.log(status);
+			}
+		});
+			
+	}
+</script>
